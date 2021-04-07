@@ -54,6 +54,7 @@
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
     "gatsby-plugin-eslint": "^2.0.8",
+    "gh-pages": "^3.1.0",
     "husky": "^4.3.5",
     "lint-staged": "^10.5.3",
     "netlify-plugin-cypress": "^1.4.1",
@@ -83,7 +84,8 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "test:e2e": "start-server-and-test develop http://localhost:9000 cy:open",
-    "test:e2e:ci": "start-server-and-test serve http://localhost:9000 cy:run"
+    "test:e2e:ci": "start-server-and-test serve http://localhost:9000 cy:run",
+    "deploy": "gatsby build && gh-pages -d public -b master"
   },
   "husky": {
     "hooks": {

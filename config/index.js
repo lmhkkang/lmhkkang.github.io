@@ -1,10 +1,10 @@
 module.exports = {
   //-- SITE SETTINGS -----
   author: "@konstantinmuenster",
-  siteTitle: "Gatsby Starter Portfolio Minimal",
-  siteShortTitle: "Gatsby", // Used as logo text in header, footer, and splash screen
+  siteTitle: "Minho porfolio",
+  siteShortTitle: "LeeMinho Portfolio", // Used as logo text in header, footer, and splash screen
   siteDescription:
-    "A modern one-page portfolio with a clean yet expressive design.",
+    "Developer, Lee minho portfolio",
   siteUrl: "https://gatsby-starter-portfolio-minimal.netlify.app/",
   siteLanguage: "en_US",
   siteIcon: "content/favicon.png", // Relative to gatsby-config file
@@ -56,27 +56,33 @@ module.exports = {
   // There are icons available for the following platforms:
   // Medium, GitHub, LinkedIn, XING, Behance, E-Mail
   socialMedia: [
+    /*
     {
       name: "Linkedin",
       url: "https://www.linkedin.com/in/konstantin-muenster/",
     },
+    */
     {
-      name: "Medium",
-      url: "https://konstantinmuenster.medium.com/",
+      name: "Instagram",
+      url: "https://www.instagram.com/minhojohn.lee/",
     },
     {
       name: "Github",
       url:
-        "https://github.com/konstantinmuenster/gatsby-starter-portfolio-minimal",
+        "https://github.com/lmhkkang",
     },
+    /*
     {
       name: "Behance",
       url: "https://www.behance.net/konstanmnster",
     },
-    // {
-    //   name: "Mail",
-    //   url: "mailto:mail@konstantin.digital",
-    // },
+    */
+    /*
+    {
+      name: "Mail",
+      url: "37alsgh@gmail.com",
+    },
+    */
   ],
 
   //-- NAVIGATION SETTINGS -----
