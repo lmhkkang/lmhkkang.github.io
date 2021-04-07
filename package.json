@@ -73,6 +73,7 @@
     "dark-mode"
   ],
   "license": "MIT",
+  "homepage": "https://lmhkkang.github.io/lmhkkang.github.io/",
 
   "scripts": {
     "build": "gatsby build",
@@ -95,9 +96,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/lmhkkang/lmhkkang.github.com"
+    "url": "https://github.com/lmhkkang/lmhkkang.github.io"
   },
   "bugs": {
-    "url": "https://github.com/lmhkkang/lmhkkang.github.com"
+    "url": "https://github.com/lmhkkang/lmhkkang.github.io"
   }
 }
