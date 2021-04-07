@@ -1,5 +1,5 @@
 {
-  "name": "gatsby-starter-portfolio-minimal",
+  "name": "lmhkkang.github.io",
   "description": "A clean, one-page portfolio using MDX",
   "version": "1.0.0",
   "author": "Konstantin Münster <mail@konstantin.digital>",
@@ -94,9 +94,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/konstantinmuenster/gatsby-starter-portfolio-minimal"
+    "url": "https://lmhkkang.github.io/"
   },
   "bugs": {
-    "url": "https://github.com/konstantinmuenster/gatsby-starter-portfolio-minimal/issues"
+    "url": "https://lmhkkang.github.io/"
   }
 }
