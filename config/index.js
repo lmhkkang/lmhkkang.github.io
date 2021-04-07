@@ -3,8 +3,7 @@ module.exports = {
   author: "@konstantinmuenster",
   siteTitle: "Minho porfolio",
   siteShortTitle: "LeeMinho Portfolio", // Used as logo text in header, footer, and splash screen
-  siteDescription:
-    "Developer, Lee minho portfolio",
+  siteDescription: "Developer, Lee minho portfolio",
   siteUrl: "https://lmhkkang.github.io/",
   siteLanguage: "en_US",
   siteIcon: "content/favicon.png", // Relative to gatsby-config file
@@ -68,8 +67,7 @@ module.exports = {
     },
     {
       name: "Github",
-      url:
-        "https://github.com/lmhkkang",
+      url: "https://github.com/lmhkkang",
     },
     /*
     {
