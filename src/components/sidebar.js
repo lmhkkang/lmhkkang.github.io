@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import { Link } from "gatsby"
@@ -74,6 +74,11 @@ const StyledNav = styled.nav`
 
 const Sidebar = ({ open, setOpen }) => {
   const { menu, button } = navLinks
+  const [isKor, setIsKor] = useState(false)
+
+  const changeLanguage = () => {
+    setIsKor(!isKor)
+  }
   return (
     <>
       <StyledContainer open={open} aria-hidden={!open} tabIndex={open ? 1 : -1}>
@@ -88,25 +93,9 @@ const Sidebar = ({ open, setOpen }) => {
               {name}
             </Link>
           ))}
-          {button.useFileName ? (
-            <a
-              className="cta-btn"
-              href={`/${button.fileName}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setOpen(!open)}
-            >
-              {button.name}
-            </a>
-          ) : (
-            <Link
-              className="cta-btn"
-              to={button.url}
-              onClick={() => setOpen(!open)}
-            >
-              {button.name}
-            </Link>
-          )}
+          <span className="cta-btn" onClick={() => changeLanguage()}>
+            {isKor ? "Eng" : "한국어"}
+          </span>
         </StyledNav>
       </StyledContainer>
       <StyledBackdrop open={open} />

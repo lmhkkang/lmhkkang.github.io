@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 
@@ -55,6 +55,13 @@ const StyledNav = styled.nav`
 
 const Navbar = () => {
   const { menu, button } = navLinks
+  const [isKor, setIsKor] = useState(false)
+
+  const changeLanguage = () => {
+    setIsKor(!isKor)
+    alert("구현중")
+  }
+
   return (
     <StyledNav>
       {menu.map(({ name, url }, key) => {
@@ -64,20 +71,9 @@ const Navbar = () => {
           </Link>
         )
       })}
-      {button.useFileName ? (
-        <a
-          className="cta-btn"
-          href={`/${button.fileName}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {button.name}
-        </a>
-      ) : (
-        <Link className="cta-btn" to={button.url}>
-          {button.name}
-        </Link>
-      )}
+      <span className="cta-btn" onClick={() => changeLanguage()}>
+        {isKor ? "Eng" : "한국어"}
+      </span>
     </StyledNav>
   )
 }

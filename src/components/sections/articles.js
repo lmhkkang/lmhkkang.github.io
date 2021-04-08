@@ -10,6 +10,7 @@ import { parseDate } from "../../utils"
 import { mediumRssFeed, shownArticles } from "../../../config"
 // import { rssFeed, shownArticles } from "../../../config"
 import { lightTheme, darkTheme } from "../../styles/theme"
+import PROJECTS from "../../../content/myprojects/projects"
 
 const StyledSection = motion.custom(styled.section`
   width: 100%;
@@ -108,6 +109,19 @@ const StyledContentWrapper = styled(ContentWrapper)`
         font-size: 0.75rem;
         color: ${({ theme }) => theme.colors.subtext};
         letter-spacing: +0.5px;
+        line-height: 17px;
+      }
+      .lpad10 {
+        padding-left: 10px;
+      }
+      .txt-center {
+        text-align: center;
+      }
+      .dpad10 {
+        padding: 0 0 10px 0;
+      }
+      .dark-gray {
+        color: darkgray;
       }
     }
   }
@@ -118,28 +132,38 @@ const Articles = () => {
 
   const { isIntroDone, darkMode } = useContext(Context).state
   const [articles, setArticles] = useState()
+  const [projects, setProjects] = useState()
   const articlesControls = useAnimation()
+
+  const loadArticles = async () => {
+    if (isIntroDone) {
+      await articlesControls.start({
+        opacity: 1,
+        y: 0,
+        transition: { delay: 1 },
+      })
+      console.log("working")
+      setTimeout(() => {
+        setProjects(PROJECTS)
+      }, 1000)
+      //setProjects(PROJECTS)
+      /*
+      fetch(mediumRssFeed, { headers: { Accept: "application/json" } })
+        // fetch(rssFeed, { headers: { Accept: "application/json" } })
+        .then(res => res.json())
+        // Feed also contains comments, therefore we filter for articles only
+        .then(data => data.items.filter(item => item.categories.length > 0))
+        // .then(data => data.items.filter(item => item.title.length > 0))
+        .then(newArticles => newArticles.slice(0, MAX_ARTICLES))
+        .then(articles => setArticles(articles))
+        .catch(error => console.log(error))
+        */
+    }
+  }
 
   // Load and display articles after the splashScreen sequence is done
   useEffect(() => {
-    const loadArticles = async () => {
-      if (isIntroDone) {
-        await articlesControls.start({
-          opacity: 1,
-          y: 0,
-          transition: { delay: 1 },
-        })
-        fetch(mediumRssFeed, { headers: { Accept: "application/json" } })
-          // fetch(rssFeed, { headers: { Accept: "application/json" } })
-          .then(res => res.json())
-          // Feed also contains comments, therefore we filter for articles only
-          .then(data => data.items.filter(item => item.categories.length > 0))
-          // .then(data => data.items.filter(item => item.title.length > 0))
-          .then(newArticles => newArticles.slice(0, MAX_ARTICLES))
-          .then(articles => setArticles(articles))
-          .catch(error => console.log(error))
-      }
-    }
+    console.log("PROJECTS", PROJECTS)
     loadArticles()
   }, [isIntroDone, articlesControls, MAX_ARTICLES])
 
@@ -152,8 +176,8 @@ const Articles = () => {
       <StyledContentWrapper>
         <h3 className="section-title">My Projects</h3>
         <div className="articles">
-          {articles
-            ? articles.map(item => (
+          {projects
+            ? projects.map(item => (
                 <a
                   href={item.link}
                   target="_blank"
@@ -163,13 +187,29 @@ const Articles = () => {
                   key={item.link}
                 >
                   <div className="card">
-                    <span className="category">
+                    <span className="category txt-center dpad10">
                       <Underlining color="tertiary" hoverColor="secondary">
-                        {item.categories[2]}
+                        {item.projectTitle}
                       </Underlining>
                     </span>
-                    <h4 className="title">{item.title}</h4>
-                    <span className="date">{parseDate(item.pubDate)}</span>
+                    <span className="date lpad10 dpad10 txt-center dark-gray">
+                      {item.duration}
+                    </span>
+                    <span className="date lpad10">
+                      <b>frontend</b> - {item.frontend}
+                    </span>
+                    <span className="date lpad10">
+                      <b>backend</b> - {item.backend}
+                    </span>
+                    <span className="date lpad10">
+                      <b>infra</b> - {item.infra}
+                    </span>
+                    <span className="date lpad10">
+                      <b>CM</b> - {item.CM}
+                    </span>
+                    <span className="date lpad10">
+                      <b>role</b> - {item.myjob}
+                    </span>
                   </div>
                 </a>
               ))
