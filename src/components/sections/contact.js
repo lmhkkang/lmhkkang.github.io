@@ -69,7 +69,6 @@ const Contact = ({ content }) => {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
   }
-
   return (
     <StyledSection
       id="contact"
@@ -90,6 +89,10 @@ const Contact = ({ content }) => {
             <br />
             <a href={`mailto:${frontmatter.email}`}>
               <Underlining highlight>{frontmatter.email}</Underlining>
+            </a>
+            <br />
+            <a>
+              <Underlining highlight>010-9374-8072</Underlining>
             </a>
           </div>
         </div>

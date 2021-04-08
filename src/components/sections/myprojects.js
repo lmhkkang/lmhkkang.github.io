@@ -6,7 +6,6 @@ import { motion, useAnimation } from "framer-motion"
 import Context from "../../context"
 import ContentWrapper from "../../styles/contentWrapper"
 import Underlining from "../../styles/underlining"
-import { parseDate } from "../../utils"
 import { mediumRssFeed, shownArticles } from "../../../config"
 // import { rssFeed, shownArticles } from "../../../config"
 import { lightTheme, darkTheme } from "../../styles/theme"
@@ -127,11 +126,10 @@ const StyledContentWrapper = styled(ContentWrapper)`
   }
 `
 
-const Articles = () => {
+const MyProjects = () => {
   const MAX_ARTICLES = shownArticles
 
   const { isIntroDone, darkMode } = useContext(Context).state
-  const [articles, setArticles] = useState()
   const [projects, setProjects] = useState()
   const articlesControls = useAnimation()
 
@@ -142,11 +140,10 @@ const Articles = () => {
         y: 0,
         transition: { delay: 1 },
       })
-      console.log("working")
+
       setTimeout(() => {
         setProjects(PROJECTS)
       }, 1000)
-      //setProjects(PROJECTS)
       /*
       fetch(mediumRssFeed, { headers: { Accept: "application/json" } })
         // fetch(rssFeed, { headers: { Accept: "application/json" } })
@@ -163,7 +160,6 @@ const Articles = () => {
 
   // Load and display articles after the splashScreen sequence is done
   useEffect(() => {
-    console.log("PROJECTS", PROJECTS)
     loadArticles()
   }, [isIntroDone, articlesControls, MAX_ARTICLES])
 
@@ -195,6 +191,7 @@ const Articles = () => {
                     <span className="date lpad10 dpad10 txt-center dark-gray">
                       {item.duration}
                     </span>
+
                     <span className="date lpad10">
                       <b>frontend</b> - {item.frontend}
                     </span>
@@ -205,7 +202,7 @@ const Articles = () => {
                       <b>infra</b> - {item.infra}
                     </span>
                     <span className="date lpad10">
-                      <b>CM</b> - {item.CM}
+                      <b>CM</b> - {item.cm}
                     </span>
                     <span className="date lpad10">
                       <b>role</b> - {item.myjob}
@@ -250,4 +247,4 @@ const Articles = () => {
   )
 }
 
-export default Articles
+export default MyProjects

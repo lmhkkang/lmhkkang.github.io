@@ -64,6 +64,7 @@ const StyledContentWrapper = styled(ContentWrapper)`
 
 const About = ({ content }) => {
   const { frontmatter, body } = content[0].node
+  console.log("content", content[0].node)
   const { isIntroDone } = useContext(Context).state
   const tControls = useAnimation()
   const iControls = useAnimation()

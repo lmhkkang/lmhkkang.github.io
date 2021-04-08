@@ -2,12 +2,12 @@ module.exports = {
   //-- SITE SETTINGS -----
   author: "@konstantinmuenster",
   siteTitle: "Minho porfolio",
-  siteShortTitle: "LeeMinho Portfolio", // Used as logo text in header, footer, and splash screen
+  siteShortTitle: "Portfolio - Lee Minho", // Used as logo text in header, footer, and splash screen
   siteDescription: "Developer, Lee minho portfolio",
   siteUrl: "https://lmhkkang.github.io/",
   siteLanguage: "en_US",
-  siteIcon: "content/favicon.png", // Relative to gatsby-config file
-  seoTitleSuffix: "Portfolio Minimal", // SEO title syntax will be e.g. "Imprint - {seoTitleSuffix}"
+  siteIcon: "content/like_a_boss.png", // Relative to gatsby-config file
+  seoTitleSuffix: "Portfolio - Minho", // SEO title syntax will be e.g. "Imprint - {seoTitleSuffix}"
   useCookieBar: false, // If you use Google Analytics and want to be GDPR-compliant, set it to true
   googleAnalyticsTrackingId: "", // e.g. UA-XXXXXX-X
 
