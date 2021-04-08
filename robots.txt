@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://lmhkkang.github.io/sitemap.xml
+Host: https://lmhkkang.github.io
