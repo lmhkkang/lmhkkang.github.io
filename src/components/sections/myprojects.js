@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react"
+import React, { useState, useEffect, useContext, useRef } from "react"
 import styled from "styled-components"
 import SkeletonLoader from "tiny-skeleton-loader-react"
 import { motion, useAnimation } from "framer-motion"
@@ -10,6 +10,7 @@ import { mediumRssFeed, shownArticles } from "../../../config"
 // import { rssFeed, shownArticles } from "../../../config"
 import { lightTheme, darkTheme } from "../../styles/theme"
 import PROJECTS from "../../../content/myprojects/projects"
+import { isMobile } from "../../utils/index"
 
 const StyledSection = motion.custom(styled.section`
   width: 100%;
@@ -128,7 +129,7 @@ const StyledContentWrapper = styled(ContentWrapper)`
 
 const MyProjects = () => {
   const MAX_ARTICLES = shownArticles
-
+  const el = useRef()
   const { isIntroDone, darkMode } = useContext(Context).state
   const [projects, setProjects] = useState()
   const articlesControls = useAnimation()
@@ -158,9 +159,25 @@ const MyProjects = () => {
     }
   }
 
+  const xScrollFunc = e => {
+    if (isMobile()) return
+    document.body.style.overflow = "hidden"
+    if (e.deltaY < 0) {
+      el.current.scrollBy({ top: 0, left: -200, behavior: "smooth" })
+    } else {
+      el.current.scrollBy({ top: 0, left: +200, behavior: "smooth" })
+    }
+  }
+
+  const ableScroll = () => {
+    if (isMobile()) return
+    document.body.style.overflow = null
+  }
+
   // Load and display articles after the splashScreen sequence is done
   useEffect(() => {
     loadArticles()
+    if (!isMobile()) el.current.style.overflowX = "hidden"
   }, [isIntroDone, articlesControls, MAX_ARTICLES])
 
   return (
@@ -171,7 +188,13 @@ const MyProjects = () => {
     >
       <StyledContentWrapper>
         <h3 className="section-title">My Projects</h3>
-        <div className="articles">
+        <div
+          className="articles"
+          onWheel={xScrollFunc}
+          onMouseLeave={ableScroll}
+          ref={el}
+          style={isMobile() ? { overflowX: "scroll" } : { overflowX: "hidden" }}
+        >
           {projects
             ? projects.map(item => (
                 <a
