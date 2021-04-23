@@ -162,7 +162,6 @@ const MyProjects = () => {
 
   const xScrollFunc = e => {
     if (isMobile()) return
-    document.body.style.overflow = "hidden"
     if (e.deltaY < 0) {
       el.current.scrollBy({ top: 0, left: -200, behavior: "smooth" })
     } else {
@@ -173,6 +172,10 @@ const MyProjects = () => {
   const ableScroll = () => {
     if (isMobile()) return
     document.body.style.overflow = null
+  }
+  const disableScroll = () => {
+    if (isMobile()) return
+    document.body.style.overflow = "hidden"
   }
 
   // Load and display articles after the splashScreen sequence is done
@@ -193,6 +196,7 @@ const MyProjects = () => {
           className="articles"
           onWheel={xScrollFunc}
           onMouseLeave={ableScroll}
+          onMouseEnter={disableScroll}
           ref={el}
           style={isMobi ? { overflowX: "scroll" } : { overflowX: "hidden" }}
         >
