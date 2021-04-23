@@ -133,6 +133,7 @@ const MyProjects = () => {
   const { isIntroDone, darkMode } = useContext(Context).state
   const [projects, setProjects] = useState()
   const articlesControls = useAnimation()
+  const [isMobi, setIsMobi] = useState(false)
 
   const loadArticles = async () => {
     if (isIntroDone) {
@@ -177,7 +178,7 @@ const MyProjects = () => {
   // Load and display articles after the splashScreen sequence is done
   useEffect(() => {
     loadArticles()
-    if (!isMobile()) el.current.style.overflowX = "hidden"
+    if (isMobile()) setIsMobi(isMobile())
   }, [isIntroDone, articlesControls, MAX_ARTICLES])
 
   return (
@@ -193,7 +194,7 @@ const MyProjects = () => {
           onWheel={xScrollFunc}
           onMouseLeave={ableScroll}
           ref={el}
-          style={isMobile() ? { overflowX: "scroll" } : { overflowX: "hidden" }}
+          style={isMobi ? { overflowX: "scroll" } : { overflowX: "hidden" }}
         >
           {projects
             ? projects.map(item => (
