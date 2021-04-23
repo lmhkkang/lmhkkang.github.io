@@ -17,6 +17,7 @@ const StyledSection = styled(motion.section)`
   margin-top: 6rem;
   display: flex;
   justify-content: center;
+  padding-top: 100px;
 `
 
 const StyledContentWrapper = styled(ContentWrapper)`

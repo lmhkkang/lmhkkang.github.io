@@ -10,11 +10,16 @@ import ContentWrapper from "../styles/contentWrapper"
 import Logo from "./logo"
 import Sidebar from "./sidebar"
 import Navbar from "./navbar"
+import ProgressBar from "./progressBar"
 
 const StyledHeader = motion.custom(styled.header`
+  position: fixed;
+  top: 0px;
+  z-index: 1;
   width: 100%;
   height: ${({ theme }) => theme.headerHeight};
   background: ${({ theme }) => theme.colors.background};
+  border-bottom: 1px solid #ddd;
 `)
 
 const StyledContentWrapper = styled(ContentWrapper)`
@@ -96,7 +101,6 @@ const Header = () => {
     if (isIntroDone)
       controls.start({ opacity: 1, y: 0, transition: { delay: 0.2 } })
   }, [isIntroDone, controls])
-
   let navigation
   if (detectMobileAndTablet(windowWidth)) {
     navigation = (
@@ -127,6 +131,7 @@ const Header = () => {
         </Link>
         {navigation}
       </StyledContentWrapper>
+      <ProgressBar />
     </StyledHeader>
   )
 }

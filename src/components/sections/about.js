@@ -14,6 +14,7 @@ const StyledSection = styled.section`
   height: auto;
   background: ${({ theme }) => theme.colors.background};
   margin-top: 4rem;
+  padding-top: 100px;
 `
 
 const StyledContentWrapper = styled(ContentWrapper)`

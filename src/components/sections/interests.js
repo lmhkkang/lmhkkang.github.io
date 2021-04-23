@@ -14,6 +14,7 @@ const StyledSection = styled.section`
   height: auto;
   background: ${({ theme }) => theme.colors.background};
   margin-top: 6rem;
+  padding-top: 100px;
 `
 
 const StyledContentWrapper = styled(ContentWrapper)`
@@ -150,7 +151,7 @@ const Interests = ({ content }) => {
   const showMoreItems = () => setShownInterests(shownInterests + 4)
 
   return (
-    <StyledSection id="interests">
+    <StyledSection id="features">
       <StyledContentWrapper>
         <h3 className="section-title">{frontmatter.title}</h3>
         <StyledInterests itemCount={interests.length} ref={ref}>
